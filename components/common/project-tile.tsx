@@ -6,9 +6,22 @@
 
 import styles from "./ProjectTile.module.scss";
 import Image from "next/image";
-import React, { MutableRefObject, useEffect, useRef } from "react";
+import React, {MutableRefObject, useEffect, useRef} from "react";
 import VanillaTilt from "vanilla-tilt";
-import { IProject } from "../../constants";
+import {IProject} from "../../constants";
+
+const TECH_ICON_MAP: Record<string, {src: string}> = {
+  next: {src: "/skills/next.svg"},
+  typescript: {src: "/skills/typescript.png"},
+  tailwind: {src: "/skills/tailwind.svg"},
+  react: {src: "/skills/react.svg"},
+  javascript: {src: "/skills/javascript.svg"},
+  sass: {src: "/skills/sass.svg"},
+  express: {src: "/skills/express.png"},
+};
+
+const getTechIconSrc = (tech: string): string =>
+  TECH_ICON_MAP[tech]?.src ?? `/projects/tech/${tech}.svg`;
 
 const ProjectTile = ({
   project,
@@ -47,7 +60,7 @@ const ProjectTile = ({
         {techStack.map((tech, i) => (
           <div className={`${i % 2 === 0 && "ml-16"} mb-4`} key={tech}>
             <Image
-              src={`/projects/tech/${tech}.svg`}
+              src={getTechIconSrc(tech)}
               alt={tech}
               height={45}
               objectFit="contain"
@@ -62,7 +75,7 @@ const ProjectTile = ({
   const renderDescription = (description: string): React.ReactNode => (
     <h2
       className="text-lg z-10 tracking-wide font-medium"
-      style={{ transform: "translateZ(0.8rem)" }}
+      style={{transform: "translateZ(0.8rem)"}}
     >
       {description}
     </h2>
@@ -71,7 +84,7 @@ const ProjectTile = ({
   const renderProjectName = (name: string): React.ReactNode => (
     <h1
       className="text-2xl sm:text-3xl z-10 pl-2"
-      style={{ transform: "translateZ(3rem)" }}
+      style={{transform: "translateZ(3rem)"}}
     >
       {name}
     </h1>

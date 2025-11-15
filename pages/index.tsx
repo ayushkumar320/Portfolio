@@ -16,7 +16,6 @@ import CollaborationSection from "@/components/home/collaboration";
 import Footer from "@/components/common/footer";
 import Scripts from "@/components/common/scripts";
 import AboutSection from "@/components/home/about";
-import ExperienceSection from "@/components/home/experience";
 
 const DEBOUNCE_TIME = 100;
 
@@ -76,7 +75,6 @@ export default function Home() {
           <AboutSection />
           <ProjectsSection isDesktop={isDesktop} />
           <SkillsSection />
-          <ExperienceSection />
           <CollaborationSection />
           <Footer />
         </main>

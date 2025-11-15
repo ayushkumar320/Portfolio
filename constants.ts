@@ -25,10 +25,6 @@ export const MENULINKS = [
     ref: "tech-stack",
   },
   {
-    name: "Experience",
-    ref: "experience",
-  },
-  {
     name: "Contact",
     ref: "contact",
   },
@@ -65,7 +61,42 @@ export interface IProject {
   tech: string[];
 }
 
-export const PROJECTS: IProject[] = [];
+const PROJECT_PLACEHOLDER = "/project-bg.svg";
+const PROJECT_BLUR_PLACEHOLDER =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGMAAQAABQABDQottAAAAABJRU5ErkJggg==";
+
+export const PROJECTS: IProject[] = [
+  {
+    name: "NaiUdaan - Library Management System",
+    image: "/projects/naiUdaan.png",
+    blurImage: PROJECT_BLUR_PLACEHOLDER,
+    description:
+      "Digitized library operations for community learning centers with inventory tracking, lending workflows, and student analytics.",
+    gradient: ["#0f172a", "#1e293b"],
+    url: "https://github.com/ayushkumar320/naiudaan",
+    tech: ["react", "typescript", "tailwind"],
+  },
+  {
+    name: "DebSoc",
+    image: "/projects/debsoc.png",
+    blurImage: PROJECT_BLUR_PLACEHOLDER,
+    description:
+      "A modern debate society hub featuring speaker lineups, asynchronous motions, and RSVP tooling for campus events.",
+    gradient: ["#111827", "#1f2937"],
+    url: "https://github.com/ayushkumar320/Debsoc2.0",
+    tech: ["next", "tailwind", "javascript"],
+  },
+  {
+    name: "CurriculaFlex",
+    image: "/projects/solAttendance.png",
+    blurImage: PROJECT_BLUR_PLACEHOLDER,
+    description:
+      "Adaptive course planning platform that maps skills to modules, helping students personalize learning tracks.",
+    gradient: ["#0f766e", "#0d9488"],
+    url: "https://github.com/ayushkumar320/sol-attendance",
+    tech: ["react", "typescript", "express"],
+  },
+];
 
 export const SKILLS = {
   core: ["MongoDB", "Express.js", "React", "Next.js", "Node.js"],
