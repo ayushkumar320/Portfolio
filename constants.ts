@@ -25,10 +25,6 @@ export const MENULINKS = [
     ref: "tech-stack",
   },
   {
-    name: "Timeline",
-    ref: "timeline",
-  },
-  {
     name: "Experience",
     ref: "experience",
   },
@@ -55,6 +51,8 @@ export const EMAIL = "ayushkumar85385@gmail.com";
 export const SOCIAL_LINKS = {
   linkedin: "https://linkedin.com/in/ayushnotkumar",
   github: "https://github.com/ayushkumar320",
+  instagram: "https://instagram.com/ayushnotkumar",
+  twitter: "https://twitter.com/notaprocoder",
 };
 
 export interface IProject {
@@ -70,44 +68,9 @@ export interface IProject {
 export const PROJECTS: IProject[] = [];
 
 export const SKILLS = {
-  core: ["MongoDB", "Express.js", "React", "Node.js"],
+  core: ["MongoDB", "Express.js", "React", "Next.js", "Node.js"],
   data: ["PostgreSQL", "Prisma ORM"],
   tooling: ["Docker", "TypeScript", "Tailwind CSS"],
 };
-
-export enum Branch {
-  LEFT = "leftSide",
-  RIGHT = "rightSide",
-}
-
-export enum NodeTypes {
-  CONVERGE = "converge",
-  DIVERGE = "diverge",
-  CHECKPOINT = "checkpoint",
-}
-
-export enum ItemSize {
-  SMALL = "small",
-  LARGE = "large",
-}
-
-export const TIMELINE: Array<TimelineNodeV2> = [];
-
-export type TimelineNodeV2 = CheckpointNode | BranchNode;
-
-export interface CheckpointNode {
-  type: NodeTypes.CHECKPOINT;
-  title: string;
-  subtitle?: string;
-  size: ItemSize;
-  image?: string;
-  slideImage?: string;
-  shouldDrawLine: boolean;
-  alignment: Branch;
-}
-
-export interface BranchNode {
-  type: NodeTypes.CONVERGE | NodeTypes.DIVERGE;
-}
 
 export const GTAG = "UA-163844688-1";

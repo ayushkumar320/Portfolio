@@ -1,5 +1,6 @@
 import {SKILLS, getMenuRef} from "../../constants";
 import {MutableRefObject, useEffect, useRef, useState} from "react";
+import Image from "next/image";
 import {gsap, Linear} from "gsap";
 import {ScrollTrigger} from "gsap/dist/ScrollTrigger";
 
@@ -7,6 +8,19 @@ const SKILL_STYLES = {
   SECTION:
     "w-full relative select-none mb-24 section-container py-12 flex flex-col justify-center",
   SKILL_TITLE: "section-title-sm mb-4 seq",
+};
+
+const SKILL_ICONS: Record<string, string> = {
+  MongoDB: "/skills/mongo.png",
+  React: "/skills/react.svg",
+  "Next.js": "/skills/next.svg",
+  "Express.js": "/skills/express.png",
+  "Node.js": "/skills/node.png",
+  Docker: "/skills/docker.png",
+  TypeScript: "/skills/typescript.png",
+  "Tailwind CSS": "/skills/tailwind.svg",
+  "Prisma ORM": "/skills/prisma.png",
+  PostgreSQL: "/skills/postgres.png",
 };
 
 const SkillsSection = () => {
@@ -63,14 +77,27 @@ const SkillsSection = () => {
           willChange ? "will-change-opacity" : ""
         }`}
       >
-        {skills.map((skill) => (
-          <span
-            key={skill}
-            className="mr-4 mb-4 rounded-full border border-gray-700/60 px-4 py-2 text-sm font-medium uppercase tracking-wide"
-          >
-            {skill}
-          </span>
-        ))}
+        {skills.map((skill) => {
+          const iconSrc = SKILL_ICONS[skill];
+
+          return (
+            <span
+              key={skill}
+              className="mr-4 mb-4 rounded-full border border-gray-700/60 px-4 py-2 text-sm font-semibold uppercase tracking-wide inline-flex items-center gap-2"
+            >
+              {iconSrc && (
+                <Image
+                  src={iconSrc}
+                  alt={`${skill} icon`}
+                  width={20}
+                  height={20}
+                  loading="lazy"
+                />
+              )}
+              {skill}
+            </span>
+          );
+        })}
       </div>
     </>
   );

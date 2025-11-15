@@ -14,7 +14,6 @@ import ProjectsSection from "@/components/home/projects";
 import SkillsSection from "@/components/home/skills";
 import CollaborationSection from "@/components/home/collaboration";
 import Footer from "@/components/common/footer";
-import TimelineSection from "@/components/home/timeline";
 import Scripts from "@/components/common/scripts";
 import AboutSection from "@/components/home/about";
 import ExperienceSection from "@/components/home/experience";
@@ -77,7 +76,6 @@ export default function Home() {
           <AboutSection />
           <ProjectsSection isDesktop={isDesktop} />
           <SkillsSection />
-          <TimelineSection isDesktop={isDesktop} />
           <ExperienceSection />
           <CollaborationSection />
           <Footer />
